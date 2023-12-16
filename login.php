@@ -8,15 +8,15 @@
 <?php include_once "header.php"; ?>
 <html>
 <style>
-    body {
+     body {
   background: linear-gradient(to bottom right, #d3d3d3 10%, #f8f8f8, #89CFF0 50%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  padding: 0 10px;
 }
-.form {
-  padding: 25px 30px;
-   background: linear-gradient(to top left, #e4dede 30%, #89cff0bd 20%); 
-  border-radius: 10px;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-}
+
 .form{
   padding: 25px 30px;
    background: linear-gradient(to top left, #e4dede 30%, #89cff0bd 20%); 
@@ -126,7 +126,7 @@
 }
 .form .link a:hover{
   text-decoration: underline;
-}
+} 
   </style>
 <body>
 

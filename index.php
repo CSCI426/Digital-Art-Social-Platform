@@ -10,6 +10,11 @@
 <style>
     body {
   background: linear-gradient(to bottom right, #d3d3d3 10%, #f8f8f8, #89CFF0 50%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  padding: 0 10px;
 }
 .form{
   padding: 25px 30px;
