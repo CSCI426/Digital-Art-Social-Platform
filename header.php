@@ -7,5 +7,9 @@
   <title>Readers & Writers Haven</title>
  
   <script src="https://kit.fontawesome.com/7974f34a26.js" crossorigin="anonymous"></script>
-  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/index.css">
+  <link rel="stylesheet" href="css/registration.css">
+  <link rel="stylesheet" href="css/users.css">
+  <link rel="stylesheet" href="css/chat.css">
 </head>

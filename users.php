@@ -14,74 +14,6 @@ if(!isset($_SESSION['unique_id'])){
     font-family: Arial, sans-serif;
     overflow-x: hidden; 
   }
-
-  header.header {
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    background: #d3d3d3;
-    z-index: 10;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    padding: 1rem 9%;
-    font-weight: bolder;
-}
-
-
-  .wrapper {
-    max-width: 350px;
-    height: 100vh;
-    margin: 0;
-    padding: 0;
-    position: fixed;
-    background:#fff;
-    top: 0;
-    right: -350px;  
-    transition: right 0.5s ease;  
-    z-index: 12;
-  }
-
-  .users {
-    border-left: 1px solid #ccc;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    overflow-y: auto;
-  }
-
-  .header {
-    background-color: #333;
-    color: #fff;
-    padding: 15px;
-    text-align: right;
-  }
-
-  .content {
-    display: flex;
-    align-items: center;
-  }
-
-  .details {
-    margin-left: 10px;
-  }
-
-  .search {
-    padding: 15px;
-    border-bottom: 1px solid #ccc;
-  }
-
-  .users-list{
-    padding: 15px;
-  }
-
-    #toggleChatBtn,#backChatBtn,#settings {
-    cursor: pointer;
-    border: none;
-    background: none;
-    font-size: 24px;
-    color: #333;
-  }
-
 </style>
 <body>
 
@@ -96,6 +28,17 @@ if(!isset($_SESSION['unique_id'])){
 <button id="toggleChatBtn"><i class="fa-brands fa-rocketchat"></i></button>
 </div>
 </header>
+
+<div class="wrapper2">
+  <section class="settings-content">
+    <button>
+      <a href="account.php">Button 1</a></button>
+    <button>Button 2</button>
+    <button>Button 3</button>
+  </section>
+  <button id="backBtn"><i class="fa-solid fa-circle-right"></i></button>
+</div>
+
 <div class="wrapper">
   <section class="users">
     <header>
@@ -127,11 +70,17 @@ if(!isset($_SESSION['unique_id'])){
 
 <script src="javascript/users.js"></script>
 <script>
-  document.addEventListener('DOMContentLoaded', function() {
-    var wrapper = document.querySelector('.wrapper');
+     var wrapper = document.querySelector('.wrapper');
     var toggleChatBtn = document.getElementById('toggleChatBtn');
     var backChatBtn = document.getElementById('backChatBtn');
     var isWrapperVisible = false;
+
+    var wrapper2 = document.querySelector('.wrapper2');
+    var toggleSettingsBtn = document.getElementById('settings');
+    var backBtn = document.getElementById('backBtn');
+    var isBtnVisible = false;
+  document.addEventListener('DOMContentLoaded', function() {
+   
 
     function toggleWrapper(showBtn, hideBtn) {
       showBtn.style.display = 'block';
@@ -146,6 +95,25 @@ if(!isset($_SESSION['unique_id'])){
 
     backChatBtn.addEventListener('click', function() {
       toggleWrapper(toggleChatBtn, backChatBtn);
+    });
+  });
+
+  document.addEventListener('DOMContentLoaded', function() {
+   
+
+    function toggleWrapper(showBtn, hideBtn) {
+      showBtn.style.display = 'block';
+      hideBtn.style.display = 'none';
+      wrapper2.style.left = isBtnVisible ? '-350px' : '0';
+      isBtnVisible = !isBtnVisible;
+    }
+
+    toggleSettingsBtn.addEventListener('click', function() {
+      toggleWrapper(backBtn, toggleSettingsBtn);
+    });
+
+    backBtn.addEventListener('click', function() {
+      toggleWrapper(toggleSettingsBtn, backBtn);
     });
   });
 </script>

@@ -18,65 +18,11 @@
    background: linear-gradient(to bottom right, #d3d3d3 10%, #f8f8f8, #89CFF0 50%);
         }
 
-        .wrapper {
-            width: 100%;
-            max-width: 600px; 
-        }
 
-        .chat-area {
-            border: 1px solid #ccc;
-            border-radius: 8px;
-            overflow: hidden;
-        }
 
-        header {
-            background: #f1f1f1;
-            padding: 10px;
-            display: flex;
-            align-items: center;
-            border-bottom: 1px solid #ccc;
-        }
-
-        .details {
-            margin-left: 10px;
-        }
-
-        .chat-box {
-            height: 300px; 
-            overflow-y: auto;
-        }
-
-        .typing-area{
-  padding: 18px 30px;
-  display: flex;
-  justify-content: space-between;
-}
-
-        .input-field {
-            flex: 1;
-            padding-left: 1.5rem;
-        }
-
-        .typing-area button{
-  color: #fff;
-  width: 55px;
-  border: none;
-  outline: none;
-  background: #333;
-  font-size: 19px;
-  cursor: pointer;
-  opacity: 0.7;
-  pointer-events: none;
-  border-radius: 0 5px 5px 0;
-  transition: all 0.3s ease;
-}
-.typing-area button.active{
-  opacity: 1;
-  pointer-events: auto;
-}
 </style>
 <body>
-  <div class="wrapper">
+  <div class="chat">
     <section class="chat-area">
       <header>
         <?php 

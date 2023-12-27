@@ -1,205 +1,396 @@
-<?php 
-  session_start();
-  if(isset($_SESSION['unique_id'])){
-    header("location: users.php");
-  }
-?>
-
 <?php include_once "header.php"; ?>
-<html>
+<html lang="en">
 <style>
-    body {
-  background: linear-gradient(to bottom right, #d3d3d3 10%, #f8f8f8, #89CFF0 50%);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  min-height: 100vh;
-  padding: 0 10px;
-}
-.form{
-  padding: 25px 30px;
-   background: linear-gradient(to top left, #e4dede 30%, #89cff0bd 20%); 
-  border-radius: 10px;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-}
-.form header{
-  text-align: center;
-  font-size: 25px;
-  font-weight: 600;
-  padding-bottom: 10px;
-  border-bottom: 1px solid #000;
-}
-.form form{
-  margin: 20px 0;
-}
-.form form .error-text{
-  color: #721c24;
-  padding: 8px 10px;
-  text-align: center;
-  border-radius: 5px;
-  background: #f8d7da;
-  border: 1px solid #f5c6cb;
-  margin-bottom: 10px;
-  display: none;
-}
-.form form .name-details{
-  display: flex;
-}
-.form .name-details .field:first-child{
-  margin-right: 10px;
-}
-.form .name-details .field:last-child{
-  margin-left: 10px;
-}
-.form form .field{
-  display: flex;
-  margin-bottom: 10px;
-  flex-direction: column;
-  position: relative;
-}
-.form form .field label{
-  margin-bottom: 2px;
-}
-.form form .input input {
-  height: 40px;
-  width: 100%;
-  font-size: 16px;
-  padding: 0 10px;
-  border-radius: 5px;
-  border: 1px solid #e4dede;
-  transition: border-color 0.3s ease; 
-
- 
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    html{
+  scroll-behavior: smooth;
 }
 
+    body{
+        margin: 0;
+        background: #020824;
+    }
 
-.form form .input input:hover {
-  border-color: #e4dede; 
+    
+.container nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: fixed;
+    background: transparent;
+    top: 0;
+    left: 5%; 
+    right: 5%; 
+    width: 90%; 
+    z-index: 1000;
 }
-
-
-.form form .input input:focus {
-  outline: none; 
-  border-color:5px #8ea2b7;
-  box-shadow: 0 0 8px #f4f6f7bd,
-  0 0 16px #9fb1babd,
-  0 0 30px #5f747ebd; 
-}
-
-.form form .field input{
-  outline: none;
-}
-.form form .image input{
-  font-size: 17px;
-}
-.form form .button input{
-  height: 45px;
-  border: none;
-  color: #fff;
-  font-size: 17px;
-  background:rgb(70, 67, 67);
-  border-radius: 5px;
-  cursor: pointer;
-  margin-top: 13px;
-}
-.form form .field i{
-  position: absolute;
-  right: 15px;
-  top: 70%;
-  color: #ccc;
-  cursor: pointer;
-  transform: translateY(-50%);
-}
-.form form .field i.active::before{
-  color: #333;
-  content: "\f070";
-}
-.form .link{
-  text-align: center;
-  margin: 10px 0;
-  font-size: 17px;
-}
-.form .link a{
-  color: #333;
-}
-.form .link a:hover{
-  text-decoration: underline;
-}
-.field.image {
-  margin-bottom: 20px;
-}
-
-.field.image label {
-  display: block;
-  margin-bottom: 8px;
-}
-
-.field.image input {
-  border: 2px solid gray;
-  color: gray;
-  background-color: white;
-  padding: 8px 20px;
-  border-radius: 8px;
-  font-size: 16px;
-  font-weight: bold;
-  transition: border-color 0.3s ease, color 0.3s ease, background-color 0.3s ease;
-}
-
-.field.image input:hover,
-.field.image input:focus {
-  border-color: #555;
-  color: #555;
-  background-color: #f0f0f0;
-}
-
-
-
-  </style>
-<body>
-
-  <div class="wrapper">
-    <section class="form signup">
-      <header>Accessing Worlds of Words</header>
-      <form action="#" method="POST" enctype="multipart/form-data" autocomplete="off">
-        <div class="error-text"></div>
-        <div class="name-details">
-          <div class="field input">
-            <label>First Name</label>
-            <input type="text" name="fname" placeholder="First name" required>
-          </div>
-          <div class="field input">
-            <label>Last Name</label>
-            <input type="text" name="lname" placeholder="Last name" required>
-          </div>
+</style>
+<body class="index">
+    <header>
+        <div class="container" id='home'>
+            <nav>
+                <a href="index.php" class="brand">T&L</a>
+                <ul class="menu">
+                    <li><a href="#home">Home</a></li>
+                    <li><a href="#about">About</a></li>
+                    <li><a href="#art">ArtWorks</a></li>
+                    <li><a href="#Artists">Artists</a></li>
+                    
+                    <li>
+                        <a href="login.php" class='btn btn-primary'>
+                            Log In
+                        </a>
+                    </li>
+                </ul>
+                <a href="login.php" class='btn btn-primary'>
+                    Log In
+                </a>
+                <button class='menu-btn'>
+                    <i class="fas fa-bars"></i>
+                </button>
+            </nav>
+            <div class="header-body" >
+                <div>
+                    <div>
+                        <p>
+                            Every tree in the forest knows About
+                            creating value and about reciprocity
+                        </p>
+                        <span class="bar"></span>
+                        <h1>Buy NTFS</h1>
+                    </div>
+                    <div>
+                        <h1>Sell NFTS</h1>
+                        <span class="bar"></span>
+                        <p>
+                            Every tree in the forest knows about
+                            creating value and about reciprocity
+                        </p>
+                    </div>
+                    <div class="btn-group">
+                        <a href="#" class="btn btn-primary">
+                            Join Us
+                        </a>
+                        <a href="#" class="btn btn-secondary">
+                            Learn More
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <img src="img/grid1-top.png" class="grid-img" alt="">
         </div>
-        <div class="field input">
-          <label>Email Address</label>
-          <input type="text" name="email" placeholder="Enter your email" required>
+    </header>
+
+    <div class="container">
+        <img src="img/grid1-bottom.png" alt="" class="grid-img">
+        <section class="services">
+            <div class="heading" id="about">
+                <h2>What we actually do?</h2>
+                <p>
+                    Lorem ipsum dolor, sit amet consectetur adipisicing elit. Repellat, veniam enim? Nostrum veritatis
+                    iusto neque, repudiandae doloribus ut nobis repellendus!
+                </p>
+            </div>
+            <div class="cards">
+                <div class="card">
+                    <div class="light"></div>
+                    <img src="img/wallet.png" alt="wallet" >
+                    <h3>Set up your wallet</h3>
+                    <p>
+                        NFT's ate transforming the way commerce is transacted
+                    </p>
+                </div>
+                <div class="card">
+                    <div class="light"></div>
+                    <img src="img/camera.png" alt="camera" >
+                    <h3>Set up your wallet</h3>
+                    <p>
+                        NFT's ate transforming the way commerce is transacted
+                    </p>
+                </div>
+                <div class="card">
+                    <div class="light"></div>
+                    <img src="img/gift.png" alt="gift">
+                    <h3>Set up your wallet</h3>
+                    <p>
+                        NFT's ate transforming the way commerce is transacted
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <section class="featured">
+            <div class="heading" id='art'>
+                <h2>Featured Artworks</h2>
+            </div>
+            <div class="cards">
+                <div class="card">
+                    <img class ="art-img" src="img/crystal1.jpg" >
+                    <div class="light"></div>
+                    <h3 class="art-title">Blue Color Crystal</h3>
+                    <div class="favourites">
+                        <div>
+                            <img src="img/user1.jpg" alt="artwork">
+                            <img src="img/user2.jpg" alt="artwork">
+                            <img src="img/user3.jpg" alt="artwork">
+                            <small>
+                                2+
+                            </small>
+                        </div>
+                        <div>
+                            <span>Favourite This</span>
+                        </div>
+                    </div>
+                    <div class="bid">
+                        <div>
+                            <p>
+                                Current Bid
+                            </p>
+                            <h3>
+                                <i class="fab-fa-ethereum"></i>
+                                2.65ETH
+                            </h3>
+                        </div>
+                        <div>
+                            <p>
+                                Ends In
+                            </p>
+                            <h3>
+                                10H.33M
+                            </h3>
+                        </div>
+                    </div>
+                </div>
+                <div class="card">
+                    <img class ="art-img" src="img/crystal2.jpg" >
+                    <div class="light"></div>
+                    <h3 class="art-title">Orange Color Crystal</h3>
+                    <div class="favourites">
+                        <div>
+                        <img src="img/user1.jpg" alt="artwork">
+                        <img src="img/user2.jpg" alt="artwork">
+                        <img src="img/user3.jpg" alt="artwork">
+                            <small>
+                                2+
+                            </small>
+                        </div>
+                        <div>
+                            <span>Favourite This</span>
+                        </div>
+                    </div>
+                    <div class="bid">
+                        <div>
+                            <p>
+                                Current Bid
+                            </p>
+                            <h3>
+                                <i class="fab-fa-ethereum"></i>
+                                2.65ETH
+                            </h3>
+                        </div>
+                        <div>
+                            <p>
+                                Ends In
+                            </p>
+                            <h3>
+                                10H.33M
+                            </h3>
+                        </div>
+                    </div>
+                </div>
+                <div class="card">
+                    <img class ="art-img" src="img/crystal3.jpg" >
+                    <div class="light"></div>
+                    <h3 class="art-title">Green Color Crystal</h3>
+                    <div class="favourites">
+                        <div>
+                            <img src="img/user1.jpg" alt="artwork">
+                            <img src="img/user2.jpg" alt="artwork">
+                            <img src="img/user3.jpg" alt="artwork">
+                            <small>
+                                2+
+                            </small>
+                        </div>
+                        <div>
+                            <span>Favourite This</span>
+                        </div>
+                    </div>
+                    <div class="bid">
+                        <div>
+                            <p>
+                                Current Bid
+                            </p>
+                            <h3>
+                                <i class="fab-fa-ethereum"></i>
+                                2.65ETH
+                            </h3>
+                        </div>
+                        <div>
+                            <p>
+                                Ends In
+                            </p>
+                            <h3>
+                                10H.33M
+                            </h3>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section class="explore">
+            <div class="grid">
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+            </div>
+            <div>
+                <h2>Explore our top art works</h2>
+                <p>
+                    NFT's ate transforming the way commerce is transacted, contracts are enforced, investment are held, and value is transerred.
+                    Every tree in the forest knows about creating value and value is transferred every tout reciprocity.
+                </p>
+                <div class="stats">
+                    <div>
+                        <small>Artworks</small>
+                        <h3>1305K</h3>
+                        <p>NFT's are transforming the way commerce</p>
+                    </div>
+                    <div>
+                        <small>Users</small>
+                        <h3>505K</h3>
+                        <p>NFT's are transforming the way commerce</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="artists" id="Artists">
+            <div class="heading">
+                <h2>Our top artists</h2>
+                <p>
+                NFT's ate transforming the way commerce is transacted, contracts are enforced, investment are held, and value is transerred.
+                    Every tree in the forest knows about creating value and value is transferred every tout reciprocity.
+                </p>
+            </div>
+            <div class="cards">
+                <div class="card">
+                    <img src="img/smokes1.jpg" alt="bg-img" class="bg-img">
+                    <img src="img/Tarek.jpg" alt="profile-img" class="profile-img">
+                    <h3>Tarek Semhan</h3>
+                    <div class="stars" >
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star"></i>
+                        <span>
+                            5.0
+                        </span>
+                    </div>
+                    <p>
+                        NFT's are transforming the way commerce
+                    </p>
+                    <button class="card-btn">Follow</button>
+                </div>
+                <div class="card">
+                    <img src="img/smokes2.jpg" alt="bg-img" class="bg-img">
+                    <img src="img/Layal.png" alt="profile-img" class="profile-img">
+                    <h3>Layal Faraj</h3>
+                    <div class="stars" >
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star"></i>
+                        <span>
+                            5.0
+                        </span>
+                    </div>
+                    <p>
+                        NFT's are transforming the way commerce
+                    </p>
+                    <button class="card-btn">Follow</button>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <section class="trial">
+        <h2>Get a free trail</h2>
+        <p>
+        NFT's ate transforming the way commerce is transacted, contracts are enforced, investment are held, and value is transerred.
+                    Every tree in the forest knows about creating value and value is transferred every tout reciprocity.
+        </p>
+        <a href="#" class="btn btn-primary">
+            Join us now
+        </a>
+        </section>
+        <div class="container">
+            <footer>
+                <div>
+                    <h2>Degital Agency</h2>
+                    <p>
+                    NFT's are transforming the way commerce
+                    </p>
+                    <hr>
+                    <h3>Get pur latest updates</h3>
+                    <form action="">
+                        <div class="input-wrap">
+                            <input type="email"
+                            placeholder="Enter Your Email">
+                            <button class="btn btn-primary">
+                                Send
+                            </button>
+                        </div>
+                    </form>
+                </div>
+                <div>
+                    <h3>Quick Links</h3>
+                    <ul>
+                        <li><a href="#">reg</a></li>
+                        <li><a href="#">gf</a></li>
+                        <li><a href="#">df</a></li>
+                        <li><a href="#">fd</a></li>
+                        <li><a href="#">df</a></li>
+                        <li><a href="#">df</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h3>Informations</h3>
+                    <ul>
+                    <li><a href="#">reg</a></li>
+                    <li><a href="#">gf</a></li>
+                    <li><a href="#">df</a></li>
+                    <li><a href="#">fd</a></li>
+                    <li><a href="#">df</a></li>
+                    <li><a href="#">df</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h3>Company</h3>
+                    <li><a href="#">reg</a></li>
+                    <li><a href="#">gf</a></li>
+                    <li><a href="#">df</a></li>
+                    <li><a href="#">fd</a></li>
+                    <li><a href="#">df</a></li>
+                    <li><a href="#">df</a></li>
+                </div>
+                <div>
+                    <h3>Socail Media</h3>
+                    <ul>
+                        <li><a href="#">Facebook</a></li>
+                        <li><a href="#">Instagram</a></li>
+                        <li><a href="#">Linkedin</a></li>
+                        <li><a href="#">Whatsapp</a></li>
+                        <li><a href="#">Twitter</a></li>
+                        <li><a href="#">Telegram</a></li>
+                    </ul>
+                </div>
+            </footer>
         </div>
-        <div class="field input">
-          <label>Password</label>
-          <input type="password" name="password" placeholder="Enter new password" required>
-          <i class="fas fa-eye"></i>
-        </div>
-        <div class="field image">
-  <label>Select Image</label>
-
-    <!-- <button>Choose File</button> -->
-    <input type="file" name="image" class="btn" accept="image/x-png,image/gif,image/jpeg,image/jpg" required>
-</div>
-
-
-        <div class="field button">
-        <input type="submit" name="submit" value="Unlock the Stories">
-        </div>
-      </form>
-      <div class="link">Already signed up? <a href="login.php">Login now</a></div>
-    </section>
-  </div>
-
-  <script src="javascript/pass-show-hide.js"></script>
-  <script src="javascript/signup.js"></script>
-
 </body>
+<script src="javascript/index.js"></script>
 </html>
