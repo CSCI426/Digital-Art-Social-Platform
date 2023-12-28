@@ -161,7 +161,7 @@ if ($result) {
         <input type="text" name="lname" id="lname" value="<?php echo $row['lname']; ?>" required><br>
 
         <button type="submit">Save</button>
-        <button ><a href="account.php">Back</a></button>
+        <button type="button" ><a href="account.php">Back</a></button>
     </form>
 </div>
 </body>
