@@ -50,5 +50,3 @@ setInterval(() => {
   };
   xhr.send();
 }, 500);
-
-
