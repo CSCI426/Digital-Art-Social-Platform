@@ -15,13 +15,24 @@
             align-items: center;
             height: 100vh;
             overflow: hidden;
-   background: linear-gradient(to bottom right, #d3d3d3 10%, #f8f8f8, #89CFF0 50%);
+            background: linear-gradient(to bottom right, #2a0047 20%, #71aeca, #2a0047 100%);
         }
 
 
 
 </style>
+
+
 <body>
+<div class="absolute">
+    <div class="absolute inset-0 justify-center">
+      <div class="bg-shape1 bg-primary opacity-50 bg-blur"> </div>
+      <div class="bg-shape2 bg-primary opacity-50 bg-blur"> </div>
+      <div class="bg-shape3 bg-purple opacity-50 bg-blur"> </div>
+      <div class="bg-shape4 bg-teal opacity-50 bg-blur"> </div>
+    </div>
+  </div>
+  
   <div class="chat">
     <section class="chat-area">
       <header>

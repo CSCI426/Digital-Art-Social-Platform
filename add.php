@@ -17,48 +17,101 @@ if (!isset($_SESSION['unique_id'])) {
     <title>Account Page</title>
     <link rel="stylesheet" type="text/css" href="styles.css">
     <style>
-        .form-container {
-            max-width: 400px;
-            margin: 0 auto;
-            padding: 20px;
-            background-color: #f4f4f4;
-            border-radius: 5px;
-        }
+       body {
+        background: 
+        rgb(17,68,96);
+      color: #fff;
+      font-family: 'Courier New', monospace;
+      text-decoration: none;
+    }
+    
+    .form-container {
+      max-width: 400px;
+      margin: 0 auto;
+      margin-top: 80px;
+      padding: 1rem;
+    text-align: center;
+    background: rgba(127, 127, 127, .25);
+    border-radius: 10px;
+    border: 1px solid rgba(255, 255, 255,.18);
+    position: relative;
+    }
+    
+    .form-container h2 {
+      margin-bottom: 20px;
+    }
+    
+    .form-container label {
+      display: block;
+      margin-bottom: 10px;
+      text-align: left;
+    }
+    
+    .form-container input,
+    .form-container textarea {
+      width: 100%;
+      padding: 10px;
+      border-radius: 5px;
+      border: none;
+      margin-bottom: 10px;
+    }  
+    
+    .form-container button {
+      background-color: #42a3c3;
+      border: none;
+      color: #fff;
+      padding: 10px 20px;
+      border-radius: 5px;
+      font-weight: bold;
+      cursor: pointer;
+      transition: background-color 0.3s;
+    }
+    
+    .form-container button:hover {
+      background-color: #328da4;
+    }
 
-        .form-container label,
-        .form-container input,
-        .form-container textarea,
-        .form-container button {
-            display: block;
-            margin-bottom: 10px;
-        }
+    .success-message {
+      color: #4caf50;
+      text-align: center;
+      margin-top: 80px;
+    }
+    
+    .error-message {
+      color: #721c24;
+      text-align: center;
+      margin-top: 80px;
+    }
 
-        .form-container label {
-            font-weight: bold;
-        }
-
-        .form-container input[type="file"],
-        .form-container input[type="number"],
-        .form-container textarea {
-            width: 100%;
-            padding: 8px;
-            border: 1px solid #ccc;
-            border-radius: 4px;
-            resize: vertical;
-        }
-
-        .form-container button {
-            background-color: #4CAF50;
-            color: white;
-            padding: 10px 15px;
-            border: none;
-            border-radius: 4px;
-            cursor: pointer;
-        }
-
-        .form-container button:hover {
-            background-color: #45a049;
-        }
+    .file-input-container {
+        position: relative;
+        display: inline-block;
+        overflow: hidden;
+        margin-bottom: 10px;
+    }
+        
+    .file-input-container input {
+        font-size: 100px;
+        position: absolute;
+        left: 0;
+        top: 0;
+        opacity: 0;
+        cursor: pointer;
+    }
+        
+    .file-input-container button {
+        background-color: #42a3c3;
+        border: none;
+        color: #fff;
+        padding: 6px 10px;
+        border-radius: 5px;
+        cursor: pointer;
+        transition: background-color 0.3s;
+    }
+    button a {
+  text-decoration: none;
+  color: #fff;
+}
     </style>
 </head>
 
@@ -85,6 +138,7 @@ if (!isset($_SESSION['unique_id'])) {
             <input type="number" name="price" id="price" min="0" step="0.01" required>
 
             <button type="submit">Add Post</button>
+            <button type="button" ><a href="users.php">Back</a></button>
         </form>
     </div>
 

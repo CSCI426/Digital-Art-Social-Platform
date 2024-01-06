@@ -32,12 +32,11 @@ $posts_query = mysqli_query($conn, "SELECT * FROM posts ORDER BY created_at DESC
 <?php include_once "header.php"; ?>
 <html>
 <style>
-   body {
-            margin: 0;
-            padding: 0;
-            font-family: 'Arial', sans-serif;
-            overflow-x: hidden;
-            background-color: #f2f2f2;
+body {
+    background-color: #1c2331;
+    color: #fff;
+    font-family: 'Courier New', monospace;
+    text-decoration: none;
         }
 
         header.header {
@@ -66,7 +65,7 @@ $posts_query = mysqli_query($conn, "SELECT * FROM posts ORDER BY created_at DESC
             margin: 0;
             padding: 0;
             position: fixed;
-            background: #fff;
+            background:  #fff;
             top: 0;
             right: -350px;
             transition: right 1s ease;
@@ -189,35 +188,52 @@ $posts_query = mysqli_query($conn, "SELECT * FROM posts ORDER BY created_at DESC
   #backChatBtn:hover{
     transform: rotate(360deg);
   }
+
+  h2 {
+      margin-top: 20px;
+      font-size: 24px;
+      color: #333;
+    }
+
   .posts {
     margin-top: 5rem;
-            display: flex;
-            flex-wrap: wrap;
             gap: 20px;
-            padding: 20px;
-            justify-content: center;
+         padding: 20px;
+          justify-content: center;  
+    display: flex;
+    flex-wrap: wrap;
         }
 
         .post {
-            width: 300px;
-            background-color: #fff;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-            border-radius: 8px;
+            width: 290px;
+            font-size: 13px;
             overflow: hidden;
+            border: 1px #42a3c3 solid;
+            background: linear-gradient(rgb(17, 68, 96), rgba(17, 68, 96, 0.5));
+            box-shadow: 0 0 5px rgba(0, 0, 0, 0.5);
+            border-radius: 10px;
+            padding: 15px;
         }
 
+        .post:hover {
+    transform: scale(1.01);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 1);
+  }
+
         .post img {
-            width: 100%;
-            height: 200px;
-            object-fit: cover;
-            border-bottom: 2px solid #2c3e50;
+          width: 100%;
+        height: 200px; 
+        object-fit: cover; 
+        border-radius: 10px;
+        margin-bottom: 0.3em;
         }
 
         .post p {
-            padding: 15px;
-            font-size: 14px;
-            color: #333;
+    text-align: center;
+    margin-bottom: 0.5em;
         }
+
+        
 </style>
 <body>
 
@@ -256,19 +272,18 @@ $posts_query = mysqli_query($conn, "SELECT * FROM posts ORDER BY created_at DESC
             $post_content = htmlspecialchars($post_row['image']);
             $designer_name = htmlspecialchars($post_row['designer_fname']);
             $designer_last_name = htmlspecialchars($post_row['designer_lname']);
-            $price_in_eth = htmlspecialchars($post_row['price']); // Replace with the actual column name
+            $price_in_eth = htmlspecialchars($post_row['price']); 
 
-            // Format the created_at field to display exact time
             $created_at = new DateTime($post_row['created_at']);
             $formatted_created_at = $created_at->format('Y-m-d h:i:s a');
-            // Limit the number of displayed posts
+            
             if ($post_counter < 20) {
                 ?>
                 <div class="post">
                     <img src="php/Pimages/<?php echo $post_content; ?>" alt="Post Image">
                     <p>Design by: <?php echo $designer_name . ' ' . $designer_last_name; ?></p>
                     <p>Price in ETH: <?php echo $price_in_eth; ?></p>
-                    <p>Created at: <?php echo $formatted_created_at; ?></p> <!-- Display the creation time -->
+                    <p>Created at: <?php echo $formatted_created_at; ?></p> 
                     <p><?php echo htmlspecialchars($post_row['description']); ?></p>
                 </div>
                 <?php
@@ -280,13 +295,6 @@ $posts_query = mysqli_query($conn, "SELECT * FROM posts ORDER BY created_at DESC
     }
     ?>
 </div>
-
-
-
-
-
-
-
 
 <div class="wrapper2">
   <section class="settings-content">
@@ -300,8 +308,7 @@ $posts_query = mysqli_query($conn, "SELECT * FROM posts ORDER BY created_at DESC
     <a href="changeEmail.php"><i class="fa-solid fa-envelope"></i> Change Email</a>
     <a href="changePassword.php"><i class="fa-solid fa-key"></i> Change Password</a>
     <a href="add.php"><i class="fa-solid fa-plus"></i> Add Post</a>
-    <a href="favorit.php"><i class="fa-solid fa-heart"></i> Favorites</a>
-    <a href="php/delete.php?delete_id=<?php echo $row['unique_id']; ?>" class="delete">Delete Account</a>
+    <a href="#" class="delete" onclick="confirmDelete('<?php echo $row['unique_id']; ?>')">Delete Account</a>
     <a href="php/logout.php?logout_id=<?php echo $row['unique_id']; ?>" class="logout">Logout</a>
   </section>
   <button id="backBtn"><i class="fa-solid fa-circle-left"></i></button>
@@ -382,6 +389,14 @@ document.addEventListener('DOMContentLoaded', function() {
   });
 });
 
+    function confirmDelete(userId) {
+        const userConfirmed = confirm("Are you sure you want to delete your account?");
+        if (userConfirmed) {
+            window.location.href = "index.php";
+        } else {
+            console.log("Deletion canceled by user.");
+        }
+    }
 </script>
 </body>
 </html>

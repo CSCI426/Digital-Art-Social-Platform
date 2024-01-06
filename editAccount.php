@@ -13,33 +13,25 @@ if(!isset($_SESSION['unique_id'])){
     <title>Edit Account</title>
     <link rel="stylesheet" type="text/css" href="styles.css">
     <style>
-        body {
-            background-color: #f2f2f2;
+      body {
+            background-color: rgb(17,68,96);;
             font-family: Arial, sans-serif;
         }
 
         .edit-account-form {
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
+            max-width: 400px;
+            margin: 0 auto;
+            margin-top: 80px;
+            padding: 1rem;
+            text-align: center;
+            background: rgba(127, 127, 127, .25);
+            border-radius: 10px;
+            border: 1px solid rgba(255, 255, 255,.18);
+            position: relative;
         }
 
         .edit-account-form h2 {
-            text-align: center;
             margin-bottom: 20px;
-            font-size: 24px;
-            color: #333;
-            text-transform: uppercase;
-        }
-
-        .edit-account-form form {
-            background-color: #fff;
-            border-radius: 5px;
-            padding: 20px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-            width: 400px;
         }
 
         .edit-account-form img {
@@ -56,37 +48,77 @@ if(!isset($_SESSION['unique_id'])){
         .edit-account-form label {
             display: block;
             margin-bottom: 10px;
+            text-align: center;
             font-weight: bold;
         }
 
-        .edit-account-form input[type="text"] {
+        .edit-account-form input {
             width: 100%;
             padding: 10px;
-            border: 1px solid #ccc;
             border-radius: 5px;
-            margin-bottom: 20px;
+            border: none;
+            margin-bottom: 10px;
         }
 
         .edit-account-form button {
-            display: block;
-            margin-top: 20px;
-            padding: 10px 20px;
-            background-color: #4CAF50;
-            color: #fff;
+            background-color: #42a3c3;
             border: none;
+            color: #fff;
+            margin: 3px;
+            padding: 10px 30px;
             border-radius: 5px;
-            text-decoration: none;
+            font-weight: bold;
             cursor: pointer;
-            transition: background-color 0.3s ease;
-            width: 100%;
+            transition: background-color 0.3s;
         }
         .edit-account-form button a{
             color: #fff;
         }
 
         .edit-account-form button:hover {
-            background-color: #45a049;
+            background-color: #328da4;
         }
+
+        .success-message {
+            color: #4caf50;
+            text-align: center;
+            margin-top: 80px;
+        }
+        .error-message {
+            color: #721c24;
+            text-align: center;
+            margin-top: 80px;
+        }
+
+        .file-input-container {
+            position: relative;
+            display: inline-block;
+            overflow: hidden;
+            margin-bottom: 10px;
+        }
+        
+        .file-input-container input {
+            font-size: 100px;
+            position: absolute;
+            left: 0;
+            top: 0;
+            opacity: 0;
+            cursor: pointer;
+        }
+        
+        .file-input-container button {
+            background-color: #42a3c3;
+            border: none;
+            color: #fff;
+            padding: 6px 10px;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+        button a {
+  text-decoration: none;
+  color: #fff;
+}
     </style>
 </head>
 <body>

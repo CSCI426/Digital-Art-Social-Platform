@@ -13,66 +13,74 @@ if(!isset($_SESSION['unique_id'])){
     <title>Change Email</title>
     <link rel="stylesheet" type="text/css" href="styles.css">
     <style>
-        body {
-            background-color: #f2f2f2;
-            font-family: Arial, sans-serif;
-        }
+ body {
+        background: 
+        rgb(17,68,96);
+      color: #fff;
+      font-family: 'Courier New', monospace;
+      text-decoration: none;
+    }
+    
+    .changeEmail-form {
+      max-width: 400px;
+      margin: 0 auto;
+      margin-top: 80px;
+      padding: 1rem;
+    text-align: center;
+    background: rgba(127, 127, 127, .25);
+    border-radius: 10px;
+    border: 1px solid rgba(255, 255, 255,.18);
+    position: relative;
+    }
+    
+    .changeEmail-form h2 {
+      margin-bottom: 20px;
+    }
+    
+    .changeEmail-form label {
+      display: block;
+      margin-bottom: 10px;
+      text-align: left;
+    }
+    
+    .changeEmail-form input {
+      width: 100%;
+      padding: 10px;
+      border-radius: 5px;
+      border: none;
+      margin-bottom: 10px;
+    }
+    
+    .changeEmail-form button {
+      background-color: #42a3c3;
+      border: none;
+      color: #fff;
+      padding: 10px 20px;
+      border-radius: 5px;
+      font-weight: bold;
+      cursor: pointer;
+      transition: background-color 0.3s;
+    }
+    
+    .changeEmail-form button:hover {
+      background-color: #328da4;
+    }
 
-        .changeEmail-form {
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
-        }
-
-        .changeEmail-form h2 {
-            text-align: center;
-            margin-bottom: 20px;
-            font-size: 24px;
-            color: #333;
-            text-transform: uppercase;
-        }
-
-        .changeEmail-form form {
-            background-color: #fff;
-            border-radius: 5px;
-            padding: 20px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-            width: 400px;
-        }
-
-        .changeEmail-form label {
-            display: block;
-            margin-bottom: 10px;
-            font-weight: bold;
-        }
-
-        .changeEmail-form input {
-            width: 100%;
-            padding: 10px;
-            border: 1px solid #ccc;
-            border-radius: 5px;
-            margin-bottom: 20px;
-        }
-
-        .changeEmail-form button {
-            display: block;
-            margin-top: 20px;
-            padding: 10px 20px;
-            background-color: #4CAF50;
-            color: #fff;
-            border: none;
-            border-radius: 5px;
-            text-decoration: none;
-            cursor: pointer;
-            transition: background-color 0.3s ease;
-            width: 100%;
-        }
-
-        .changeEmail-form button:hover {
-            background-color: #45a049;
-        }
+    .success-message {
+      color: #4caf50;
+      text-align: center;
+      margin-top: 80px;
+    }
+    
+    .error-message {
+      color: #721c24;
+      text-align: center;
+      margin-top: 80px;
+    }
+    button a {
+  text-decoration: none;
+  color: #fff;
+}
     </style>
 </head>
 <body>
@@ -119,6 +127,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         <input type="email" name="new_email" required><br>
 
         <button>Save</button>
+        <button type="button" ><a href="users.php">Back</a></button>
     </form>
 </div>
 
