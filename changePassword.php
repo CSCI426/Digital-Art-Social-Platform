@@ -135,6 +135,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         <button type="button" ><a href="users.php">Back</a></button>
     </form>
 </div>
-
+<script src="javascript/pass-show-hide.js"></script>
 </body>
 </html>
